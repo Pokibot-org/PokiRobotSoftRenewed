@@ -36,7 +36,7 @@ kd_tree_t *kdtree_create_equally_spaced(uint8_t power_of_division, distance_t wi
     }
 
     kd_tree_t *new_tree = KDTREE_ALLOC(sizeof(kd_tree_t));
-    memset(new_tree, 0, sizeof(new_tree));
+    memset(new_tree, 0, sizeof(kd_tree_t));
 
     if (new_tree == NULL)
     {
@@ -212,9 +212,9 @@ void kdtree_print_superblock(kd_superblock_t *block, kdtree_leaf_data_print leaf
         }
         return;
     }
-    KDTREE_PRINT("\"block_%llu dim:%d\" -> ", block, block->dim);
+    KDTREE_PRINT("\"block_%p dim:%d\" -> ", (void *)block, block->dim);
     kdtree_print_superblock(block->sons.block_l, leaf_clbk);
-    KDTREE_PRINT("\"block_%llu dim:%d\" -> ", block, block->dim);
+    KDTREE_PRINT("\"block_%p dim:%d\" -> ", (void *)block, block->dim);
     kdtree_print_superblock(block->sons.block_r, leaf_clbk);
 
 

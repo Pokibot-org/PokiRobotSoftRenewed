@@ -1,6 +1,9 @@
 #include <zephyr.h>
 #include <drivers/spi.h>
 #include <drivers/gpio.h>
+#include <logging/log.h>
+
+LOG_MODULE_REGISTER(Display);
 
 #include "display.h"
 

@@ -27,9 +27,9 @@ LOG_MODULE_REGISTER(match);
 
 #define TIME_BEFORE_FLAG_RAISE_S 96
 
-static coordinates_t path_storage[1024];
-static uint8_t path_is_found = {0};
-path_node_t end_node = {0};
+// static coordinates_t path_storage[1024];
+// static uint8_t path_is_found = {0};
+// path_node_t end_node = {0};
 
 
 
@@ -58,7 +58,7 @@ static void flag_work_handler(struct k_work *work)
     raise_flag();
 }
 
-K_DELAYED_WORK_DEFINE(flag_work, flag_work_handler);
+K_WORK_DELAYABLE_DEFINE(flag_work, flag_work_handler);
 
 void move(int32_t dist_mm)
 {
@@ -289,7 +289,7 @@ static void match_task()
     {
         k_sleep(K_MSEC(10));
     }
-    k_delayed_work_submit(&flag_work, K_SECONDS(TIME_BEFORE_FLAG_RAISE_S));
+    k_work_reschedule(&flag_work, K_SECONDS(TIME_BEFORE_FLAG_RAISE_S));
 
     k_sleep(K_MSEC(500));
     set_angle_dest(0);

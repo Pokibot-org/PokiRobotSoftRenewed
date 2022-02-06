@@ -52,11 +52,11 @@
 &timers2
 {
     status = "okay";
+    st,prescaler = <0>;
 
 	pwms_motors: pwm_0 {
 		compatible = "st,stm32-pwm";
 		status = "okay";
-		st,prescaler = <0>;
 		label = "PWMS_MOTORS";
 		pinctrl-0 = <&tim2_ch1_pa0 &tim2_ch2_pb3>;
         pinctrl-names = "default";
@@ -67,11 +67,11 @@
 &timers3
 {
     status = "okay";
+    st,prescaler = <10000>;
 
 	pwms_servos: pwm_3 {
 		compatible = "st,stm32-pwm";
 		status = "okay";
-		st,prescaler = <10000>;
 		label = "PWMS_SERVOS";
 		pinctrl-0 = <&tim3_ch1_pb4 &tim3_ch2_pb5 &tim3_ch3_pb0 &tim3_ch4_pb1> ; // ou tim3_ch3_pc8 et tim3_ch4_pc9
         pinctrl-names = "default";
