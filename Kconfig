@@ -1,0 +1,97 @@
+source "Kconfig.zephyr"
+
+menu "POKIBOT extra settings"
+
+
+config ONE_THREAD_TESTING
+    bool "If activated, turn off all threads"
+    default n
+
+
+config ODOMETRY_THREAD_ENABLED
+    bool "Activate the speed and position odometry thread"
+    default y
+    default n if ONE_THREAD_TESTING
+config ODOMETRY_THREAD_STACK
+    int "Stack size"
+    default 1024
+config ODOMETRY_THREAD_PRIORITY
+    int "Thread priority"
+    default 3
+
+
+config SPEED_CONTROL_THREAD_ENABLED
+    bool "Activate the speed closed control loop thread"
+    default y
+    default n if ONE_THREAD_TESTING
+
+config SPEED_CONTROL_THREAD_STACK
+    int "Stack size"
+    default 2048
+
+config SPEED_CONTROL_THREAD_PRIORITY
+    int "Thread priority"
+    default 5
+
+config POS_CONTROL_THREAD_ENABLED
+    bool "Activate the speed closed control loop thread"
+    default y
+    default n if ONE_THREAD_TESTING
+
+config POS_CONTROL_THREAD_STACK
+    int "Stack size"
+    default 2048
+
+config POS_CONTROL_THREAD_PRIORITY
+    int "Thread priority"
+    default 4
+
+
+
+config OBSTACLE_MANAGER_THREAD_ENABLED
+    bool "Activate the obstacle manager thread"
+    default y
+    default n if ONE_THREAD_TESTING
+config OBSTACLE_MANAGER_THREAD_STACK
+    int "Stack size"
+    default 1024
+config OBSTACLE_MANAGER_THREAD_PRIORITY
+    int "Thread priority"
+    default 10
+
+
+config THREAD_KILLER_THREAD_ENABLED
+    bool "Activate the thread killer"
+    default y
+    default n if ONE_THREAD_TESTING
+
+config THREAD_KILLER_THREAD_STACK
+    int "Stack size"
+    default 512
+
+config THREAD_KILLER_THREAD_PRIORITY
+    int "Thread priority"
+    default 1
+
+
+config MATCH_THREAD_ENABLED
+    bool "Activate the thread killer"
+    default y
+    default n if ONE_THREAD_TESTING
+
+config MATCH_THREAD_STACK
+    int "Stack size"
+    default 1024
+
+config MATCH_THREAD_PRIORITY
+    int "Thread priority"
+    default 7
+
+config PATH_MANAGER_THREAD_STACK
+    int "Stack size"
+    default 4096
+config PATH_MANAGER_THREAD_PRIORITY
+    int "Thread priority"
+    default 14
+
+endmenu
