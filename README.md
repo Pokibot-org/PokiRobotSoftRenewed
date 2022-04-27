@@ -1,6 +1,8 @@
-# SOFT DU ROBOT POKIBOT
+# PokiRobotSoftRenewed
 
-Le projet utilise zephyr os version 2.7.
+Using the zephyr west tool instead of platformio.
+
+ZEPHYR VERSION: 2.7
 
 ## SOURCEZ !!!!!!!!
 
